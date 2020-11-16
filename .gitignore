@@ -18,4 +18,8 @@
 .env.test.local
 .env.production.local
 
+# log
 *.log*
+
+# idea
+.idea
