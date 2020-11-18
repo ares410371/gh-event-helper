@@ -1,6 +1,8 @@
 import React from 'react';
 import 'rsuite/dist/styles/rsuite-default.css';
-import {Sidenav, Nav, Dropdown, Icon, Navbar, Sidebar} from "rsuite";
+import {Sidenav, Nav, Dropdown, Icon, Sidebar, Divider, DOMHelper} from "rsuite";
+import {Link} from "react-router-dom";
+import NavToggle from "./NavToggle";
 
 const headerStyles = {
     padding: 18,
@@ -12,48 +14,33 @@ const headerStyles = {
     overflow: 'hidden'
 };
 
-const iconStyles = {
-    width: 56,
-    height: 56,
-    lineHeight: '56px',
-    textAlign: 'center'
+const { getHeight, on } = DOMHelper;
+
+type State = {
+    windowHeight: number,
+    expand: boolean
 };
 
-const NavToggle = ({expand, onChange}) => {
-    return (
-        <Navbar appearance="subtle" className="nav-toggle">
-            <Navbar.Body>
-                <Nav>
-                    <Dropdown
-                        placement="topStart"
-                        trigger="click"
-                        renderTitle={children => {
-                            return <Icon style={iconStyles} icon="cog"/>;
-                        }}
-                    >
-                        <Dropdown.Item>Help</Dropdown.Item>
-                        <Dropdown.Item>Settings</Dropdown.Item>
-                        <Dropdown.Item>Sign out</Dropdown.Item>
-                    </Dropdown>
-                </Nav>
-
-                <Nav pullRight>
-                    <Nav.Item onClick={onChange} style={{width: 56, textAlign: 'center'}}>
-                        <Icon icon={expand ? 'angle-left' : 'angle-right'}/>
-                    </Nav.Item>
-                </Nav>
-            </Navbar.Body>
-        </Navbar>
-    );
+type Props = {
+    //children: React.Node
 };
 
-class SideNavigation extends React.Component {
-    constructor(props) {
+class SideNavigation extends React.Component<Props, State> {
+    resizeListener = null;
+    constructor(props: Props) {
         super(props);
         this.state = {
+            windowHeight: getHeight(window),
             expand: true
         };
+        this.resizeListenner = on(window, 'resize', this.updateHeight);
         this.handleToggle = this.handleToggle.bind(this);
+    }
+
+    updateHeight = () => {
+        this.setState({
+            windowHeight: getHeight(window)
+        });
     }
 
     handleToggle() {
@@ -62,22 +49,37 @@ class SideNavigation extends React.Component {
         });
     }
 
+    componentWillUnmount() {
+        if (this.resizeListenner) {
+            this.resizeListenner.off();
+        }
+    }
+
     render() {
-        const {expand} = this.state;
+        const { expand, windowHeight } = this.state;
+
+        let navBodyStyle = null;
+        if (expand) {
+            navBodyStyle = {
+                height: windowHeight - 112,
+                overflow: 'auto'
+            }
+        }
+
         return (
             <Sidebar style={{display: 'flex', flexDirection: 'column'}} width={expand ? 260 : 56} collapsible>
-                <Sidenav.Header>
-                    <div style={headerStyles}>
-                        <Icon icon="logo-analytics" size="lg" style={{verticalAlign: 0}}/>
-                        <span style={{marginLeft: 12}}> GM event helper</span>
-                    </div>
-                </Sidenav.Header>
                 <Sidenav expanded={expand} appearance="subtle">
-                    <Sidenav.Body>
+                    <Sidenav.Header>
+                        <div style={headerStyles}>
+                            <Icon icon="logo-analytics" size="lg" style={{ verticalAlign: 0 }} />
+                            <span style={{ marginLeft: 12 }}> GM event helper</span>
+                        </div>
+                    </Sidenav.Header>
+                    <Sidenav.Body style={navBodyStyle}>
                         <Nav>
-                            <Nav.Item eventKey="1">Home</Nav.Item>
                             <Nav.Item eventKey="2" icon={<Icon icon="fort-awesome"/>}>City Event</Nav.Item>
                             <Nav.Item eventKey="3" icon={<Icon icon="road"/>}>Road Event</Nav.Item>
+                            <Divider/>
                             <Dropdown eventKey="4" trigger="hover" title="Settings" icon={<Icon icon="gear-circle"/>} placement="rightStart">
                                 <Dropdown.Item eventKey="4-1">Export</Dropdown.Item>
                                 <Dropdown.Item eventKey="4-2">Card event setting</Dropdown.Item>
@@ -86,9 +88,8 @@ class SideNavigation extends React.Component {
                         </Nav>
                     </Sidenav.Body>
                 </Sidenav>
-                <NavToggle expand={expand} onChange={this.handleToggle}/>
+                <NavToggle expand={expand} onChange={this.handleToggle} />
             </Sidebar>
-
         );
     }
 }
