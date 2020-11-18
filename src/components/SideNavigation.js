@@ -2,7 +2,7 @@ import React from 'react';
 import 'rsuite/dist/styles/rsuite-default.css';
 import {Sidenav, Nav, Dropdown, Icon, Sidebar, Divider, DOMHelper} from "rsuite";
 import {Link} from "react-router-dom";
-import NavToggle from "./NavToggle";
+//import NavToggle from "./NavToggle";
 
 const headerStyles = {
     padding: 18,
@@ -71,24 +71,25 @@ class SideNavigation extends React.Component<Props, State> {
                 <Sidenav expanded={expand} appearance="subtle">
                     <Sidenav.Header>
                         <div style={headerStyles}>
-                            <Icon icon="logo-analytics" size="lg" style={{ verticalAlign: 0 }} />
-                            <span style={{ marginLeft: 12 }}> GM event helper</span>
+                                <Icon icon="logo-analytics" size="lg" style={{ verticalAlign: 0 }} />
+                                <span style={{ marginLeft: 12 }}> GM event helper</span>
                         </div>
                     </Sidenav.Header>
                     <Sidenav.Body style={navBodyStyle}>
                         <Nav>
-                            <Nav.Item eventKey="2" icon={<Icon icon="fort-awesome"/>}>City Event</Nav.Item>
-                            <Nav.Item eventKey="3" icon={<Icon icon="road"/>}>Road Event</Nav.Item>
+                            <Nav.Item eventKey="1" componentClass={Link} to="/">Home</Nav.Item>
+                            <Nav.Item eventKey="2" icon={<Icon icon="fort-awesome"/>} componentClass={Link} to="/city-event">City Event</Nav.Item>
+                            <Nav.Item eventKey="3" icon={<Icon icon="road"/>} componentClass={Link} to="/road-event">Road Event</Nav.Item>
                             <Divider/>
                             <Dropdown eventKey="4" trigger="hover" title="Settings" icon={<Icon icon="gear-circle"/>} placement="rightStart">
-                                <Dropdown.Item eventKey="4-1">Export</Dropdown.Item>
-                                <Dropdown.Item eventKey="4-2">Card event setting</Dropdown.Item>
-                                <Dropdown.Item eventKey="4-3">Road event setting</Dropdown.Item>
+                                <Dropdown.Item eventKey="4-1" componentClass={Link} to="/export">Export</Dropdown.Item>
+                                <Dropdown.Item eventKey="4-2" componentClass={Link} to="/city-event-settings">City event setting</Dropdown.Item>
+                                <Dropdown.Item eventKey="4-3" componentClass={Link} to="/road-event-settings">Road event setting</Dropdown.Item>
                             </Dropdown>
                         </Nav>
                     </Sidenav.Body>
                 </Sidenav>
-                <NavToggle expand={expand} onChange={this.handleToggle} />
+                {/*<NavToggle expand={expand} onChange={this.handleToggle} />*/}
             </Sidebar>
         );
     }
