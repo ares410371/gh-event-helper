@@ -1,0 +1,66 @@
+.card-button-road {
+    border-radius: 10px;
+    background: url(../resources/images/re-empty.jpg) top left no-repeat;
+    background-size: cover;
+    width: 300px;
+    height: 450px;
+    color: white;
+    font-weight: 800;
+    font-size: 26px;
+    text-align: center;
+    padding: 70px 20px 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+}
+
+.card {
+    border-radius: 14px;
+    position: relative;
+    transition: transform 0.7s;
+    transform-style: preserve-3d;
+    width: 300px;
+    height: 450px;
+    margin: 12px auto 22px;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+}
+
+.card-front,
+.card-back {
+    width: 300px;
+    display: block;
+    position: absolute;
+    backface-visibility: hidden;
+    border-radius: 14px;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    outline: none;
+}
+
+.App {
+    color: #222;
+    padding-bottom: 30px;
+    box-sizing: border-box;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.App-viewer {
+    perspective: 1400px;
+}
+
+.button {
+    margin: 10px 20px 0;
+    background: #333;
+    color: #fff;
+    border-radius: 8px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+}
