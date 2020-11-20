@@ -17,7 +17,7 @@ class App extends React.Component {
                 <BrowserRouter>
                     <Container>
                         <SideNavigation/>
-                        <Container className={`page-container container-full`}>
+                        <Container className={`page-container container-full`} style={{ alignItems: 'center'}}>
                             <Switch>
                                 <Route exact path="/" component={Home}/>
                                 <Route exact path="/city-event" component={CityEvent}/>
