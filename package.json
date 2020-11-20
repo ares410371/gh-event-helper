@@ -1,0 +1,56 @@
+{
+  "name": "gh-event-helper",
+  "version": "0.1.0",
+  "description": "Gloomhaven event helper",
+  "author": "ares410371",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ares410371/gh-event-helper.git"
+  },
+  "private": true,
+  "dependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "^4.0.0",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "rsuite": "^4.8.4",
+    "rsuite-utils": "^2.2.1",
+    "web-vitals": "^1.0.1"
+  },
+  "peerDependencies": {
+    "react": "^0.14.9 || >=15.3.0",
+    "react-dom": "^0.14.9 || >=15.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.13.0",
+    "eslint-plugin-react": "^7.21.5",
+    "less": "^3.12.2",
+    "less-loader": "^7.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
