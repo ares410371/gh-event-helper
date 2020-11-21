@@ -85,14 +85,9 @@ class CityEvent extends React.Component<Props, State> {
                     <Button onClick={() => this.moveToBottomOfDeck()}>
                         &nbsp; Put on bottom of deck
                     </Button>
-                    <div className="button" onClick={() => this.moveToBottomOfDeck()}>
-                        <img className="button-icon" alt="" src={'bottom.svg'} />
-                        &nbsp; Put on bottom of deck
-                    </div>
-                    <div className="button" onClick={() => this.removeCard()}>
-                        <img className="button-icon" alt="" src={'rip.svg'} />
+                    <Button onClick={() => this.removeCard()}>
                         &nbsp; Rip up card
-                    </div>
+                    </Button>
                 </div>
             )
         }
