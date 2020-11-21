@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.fa1ec136.chunk.css",
+    "main.js": "/static/js/main.0ef5003f.chunk.js",
+    "main.js.map": "/static/js/main.0ef5003f.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.d0146970.js",
+    "runtime-main.js.map": "/static/js/runtime-main.d0146970.js.map",
+    "static/css/2.e133fd2b.chunk.css": "/static/css/2.e133fd2b.chunk.css",
+    "static/js/2.de8ea63b.chunk.js": "/static/js/2.de8ea63b.chunk.js",
+    "static/js/2.de8ea63b.chunk.js.map": "/static/js/2.de8ea63b.chunk.js.map",
+    "static/js/3.8ee35f99.chunk.js": "/static/js/3.8ee35f99.chunk.js",
+    "static/js/3.8ee35f99.chunk.js.map": "/static/js/3.8ee35f99.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/2.e133fd2b.chunk.css.map": "/static/css/2.e133fd2b.chunk.css.map",
+    "static/css/main.fa1ec136.chunk.css.map": "/static/css/main.fa1ec136.chunk.css.map",
+    "static/js/2.de8ea63b.chunk.js.LICENSE.txt": "/static/js/2.de8ea63b.chunk.js.LICENSE.txt",
+    "static/media/CityEvent.css": "/static/media/ce-empty.259cd6f4.jpg",
+    "static/media/RoadEvent.css": "/static/media/re-empty.4c6d446f.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d0146970.js",
+    "static/css/2.e133fd2b.chunk.css",
+    "static/js/2.de8ea63b.chunk.js",
+    "static/css/main.fa1ec136.chunk.css",
+    "static/js/main.0ef5003f.chunk.js"
+  ]
+}
