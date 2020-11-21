@@ -37,6 +37,11 @@ class CityEvent extends React.Component<Props, State> {
     load() {
         console.log('load')
         const city = localStorage.getItem(`city`)
+
+        // todo our card set, remove this two lines if export will work
+        this.city = [26, 22, 28, 7, 19, 24, 11, 2, 42, 20, 14, 18, 12, 71, 1, 70, 3, 27, 9, 13, 30, 75, 15, 32].map((e, index) => index)
+        this.city = shuffle(this.city)
+
         if (!city) return this.init()
 
         this.setState({ city: JSON.parse(city) })
@@ -45,8 +50,7 @@ class CityEvent extends React.Component<Props, State> {
     init() {
         console.log('init')
         // actual city events in campaign
-        let city = [26, 22, 28, 7, 19, 24, 10, 11, 2, 42, 20, 14, 18, 12, 71, 1, 70, 3, 27, 9, 13, 30, 75, 15].map((e, index) => index)
-        //let city = [...Array(90)].map((e, index) => index)
+        let city = [...Array(90)].map((e, index) => index)
         city = shuffle(city)
         this.setState({city})
     }

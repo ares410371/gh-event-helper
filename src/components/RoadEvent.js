@@ -37,6 +37,11 @@ class RoadEvent extends React.Component<Props, State> {
     load() {
         console.log('load')
         const road = localStorage.getItem(`road`)
+
+        // todo our card set, remove this two lines if export will work
+        this.road = [22, 5, 3, 6, 11, 13, 15, 27, 29, 43, 14, 1, 2, 18, 9, 4, 24, 32].map((e, index) => index)
+        this.road = shuffle(this.road)
+
         if (!road) return this.init()
 
         this.setState({ city: JSON.parse(road) })
@@ -45,8 +50,7 @@ class RoadEvent extends React.Component<Props, State> {
     init() {
         console.log('init')
         // actual road events in campaign
-        let road = [22, 5, 3, 6, 11, 13, 15, 27, 29, 43, 14, 1, 2, 18, 9, 4, 24].map((e, index) => index)
-        //let road = [...Array(83)].map((e, index) => index)
+        let road = [...Array(83)].map((e, index) => index)
         road = shuffle(road)
         this.setState({road})
     }
